@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website with Hyperlinks and Search</title>
+    <style>
+        #search-bar {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hyperlinks with Text</h1>
+
+    <div id="search-bar">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-button">Search</button>
+    </div>
+
+    <ul id="link-list">
+        <li><a href="https://example.com">Link 1</a> - Description 1</li>
+        <li><a href="https://example.com">Link 2</a> - Description 2</li>
+        <li><a href="https://example.com">Link 3</a> - Description 3</li>
+        <li><a href="https://example.com">Link 4</a> - Description 4</li>
+    </ul>
+
+    <script>
+        var searchButton = document.getElementById("search-button");
+        var searchInput = document.getElementById("search-input");
+        var linkList = document.getElementById("link-list").getElementsByTagName("li");
+
+        searchButton.addEventListener("click", function() {
+            var searchTerm = searchInput.value.toLowerCase();
+
+            for (var i = 0; i < linkList.length; i++) {
+                var linkText = linkList[i].innerText.toLowerCase();
+
+                if (linkText.includes(searchTerm)) {
+                    linkList[i].style.display = "block";
+                } else {
+                    linkList[i].style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
